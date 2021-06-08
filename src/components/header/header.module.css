@@ -3,7 +3,8 @@
 .header {
   width: 100%;
   text-align: center;
-  padding: 0.8em;
+  padding: 1em;
+  padding-top: 2.5em;
   background-color: makerGreen;
   position: relative;
 }
@@ -20,10 +21,10 @@
 
 .logout {
   position: absolute;
-  right: 3em;
+  right: 1.5em;
   top: 1em;
-  padding: 0.8em;
-  border-radius: 20%;
+  padding: 0.3rem;
+  border-radius: 10%;
   background-color: makerBlack;
   color: makerWhite;
   outline: 0;

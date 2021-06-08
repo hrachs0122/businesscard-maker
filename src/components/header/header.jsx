@@ -3,7 +3,7 @@ import styles from './header.module.css';
 
 const Header = ({ onLogout }) => (
   <header className={styles.header}>
-    {onLogout && (
+    {onLogout && ( // onLogout 에서 true로 바꿔줌
       <button className={styles.logout} onClick={onLogout}>
         Logout
       </button>
