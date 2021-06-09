@@ -3,7 +3,7 @@ import styles from './footer.module.css';
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <p className={styles.title}>-</p>
+    <p className={styles.title}>react study time!</p>
   </footer>
 );
 

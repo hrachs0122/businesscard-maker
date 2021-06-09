@@ -16,7 +16,7 @@ function App({ authService }) {
           <Route exact path="/">
             <Login authService={authService} />
           </Route>
-          <Route path="/maker">  {/* login을 하면 maker로 이동 */}
+          <Route path="/maker">  {/* Routh의 path가 maker 일때 maker로 이동 */}
             <Maker authService={authService} />
           </Route>
         </Switch>

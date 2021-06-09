@@ -16,7 +16,7 @@ const Login = ({ authService }) => {
     const onLogin = event => {
         authService //
         .login(event.currentTarget.textContent) // 로그인이 된 데이터가 받아지면
-        .then(data => goToMaker(data.user.id)); // goToMaker 를 호출, data 안에있는 user라는 오브젝트 안에있는 ui전달
+        .then(data => goToMaker(data.user.id)); // data에서 goToMaker 를 호출, data 안에있는 user라는 오브젝트 안에있는 ui전달
     };
 
     useEffect(() => { // useEffect 를 사용해서 components 가 mount 가 되거나 update 가 될때 적용, 로그인을 담당하는 auth_service에서 적용해주기!
