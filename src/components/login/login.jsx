@@ -20,7 +20,7 @@ const Login = ({ authService }) => {
     };
 
     useEffect(() => { // useEffect 를 사용해서 components 가 mount 가 되거나 update 가 될때 적용, 로그인을 담당하는 auth_service에서 적용해주기!
-        authService.onAuthChange(user => {
+        authService.onAuthChange(user => { // 사용자가 로그인을 했다면 유저라는 데이터가 있을것이고 사용자가 로그아웃을 했다면 user 가 null 
             user && goToMaker(user.id); 
         });
     });

@@ -16,7 +16,7 @@ const CardAddForm = ({onAdd}) => {
         event.preventDefault();
         const card = {
             id: Date.now(),
-            name: nameRef.current.value || '',
+            name: nameRef.current.value || '', // ref에 있는 current value가 있으면 문자열을 쓰고 없으면 비워져있는상태로 남긴다
             company: companyRef.current.value || '',
             theme: themeRef.current.value,
             title: titleRef.current.value || '',
@@ -45,7 +45,7 @@ const CardAddForm = ({onAdd}) => {
                 placeholder="Company"
             />
             <select ref={themeRef} className={styles.select}  name="theme" placeholder="theme">
-                <option placeholder="light">light</option>
+                <option placeholder="light">light</option> {/* placeholder의 light 값과 option의 light값을 정확히 맞춰줘야 함 */}
                 <option placeholder="dark">dark</option>
                 <option placeholder="colorful">colorful</option>
             </select>
