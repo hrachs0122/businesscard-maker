@@ -3,7 +3,7 @@ import Button from '../button/button';
 import styles from './card_edit_form.module.css';
 
 const CardEditForm = ({FileInput, card, updateCard, deleteCard}) => { // onChange가 될때, updateCard, deleteCard 를 props로 가져옴
-    const {name, company, theme, title, email, message, fileName, fileURL} = card;
+    const {name, company, theme, title, email, message, fileName } = card;
 
     const onFileChange = file => {
         updateCard({
@@ -65,7 +65,7 @@ const CardEditForm = ({FileInput, card, updateCard, deleteCard}) => { // onChang
             />
             <textarea className={styles.textarea} name="message" value={message} onChange={onChange} />
             <div className={styles.fileInput}>
-                <FileInput  name={name} onFileChange={onFileChange} />
+                <FileInput  name={fileName} onFileChange={onFileChange} />
             </div>
             <Button name="Delete" onClick={onsubmit}/>
         </form>
