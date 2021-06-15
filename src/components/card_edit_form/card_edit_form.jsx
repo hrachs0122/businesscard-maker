@@ -1,21 +1,29 @@
 import React from 'react';
 import Button from '../button/button';
-import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './card_edit_form.module.css';
 
-const CardEditForm = ({card, updateCard, deleteCard}) => { // onChange가 될때, updateCard, deleteCard 를 props로 가져옴
+const CardEditForm = ({FileInput, card, updateCard, deleteCard}) => { // onChange가 될때, updateCard, deleteCard 를 props로 가져옴
     const {name, company, theme, title, email, message, fileName, fileURL} = card;
-    const onChange = (event) => {
-        if(event.currentTarget == null) {
-            return;
-        }
-        event.preventDefault();
+
+    const onFileChange = file => {
         updateCard({
             ...card,
-            [event.currentTarget.name]: event.currentTarget.value,
+            fileName: file.name,
+            fileURL: file.url,
         });
     };
-    
+
+    const onChange = (event) => { 
+        if(event.currentTarget == null) { 
+            return;
+        }
+        event.preventDefault(); 
+        updateCard({ // updateCard를 받아옴
+            ...card, 
+            [event.currentTarget.name]: event.currentTarget.value, 
+        });
+    };
+
     const onsubmit = () => {
         deleteCard(card);
     };
@@ -57,7 +65,7 @@ const CardEditForm = ({card, updateCard, deleteCard}) => { // onChange가 될때
             />
             <textarea className={styles.textarea} name="message" value={message} onChange={onChange} />
             <div className={styles.fileInput}>
-                <ImageFileInput />
+                <FileInput  name={name} onFileChange={onFileChange} />
             </div>
             <Button name="Delete" onClick={onsubmit}/>
         </form>

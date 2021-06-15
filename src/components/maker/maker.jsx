@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 
-const Maker = ({authService}) => {
+const Maker = ({FileInput, authService}) => {
     const [cards, setCards] = useState({ // {}오브젝트 안에 key는 1 이런식으로 작성
         '1': { // id가 1, 아래는 해당하는 오브젝트...
             id: '1',
@@ -54,20 +54,12 @@ const Maker = ({authService}) => {
             }
         })
     });
-
-    // const addCard = card => {
-    //     const updated = [...cards, card];  // updated 되는것은 기존에 있는 카드를 그대로 가지고 오고, 카드를 하나 더 추가 해주기
-    //     setCards(updated); // setState에 적용된 setCards를 가져와서 update 적용!
-    // }; // addCard, updateCard 는 처리해줘야 하는것이 동일하기때문에 하나로 만들어줌
     
-    const createOrUpdateCard = card => { // updateCard 라는 함수에서 createOrUpdateCard로 변경
-        // const updated = {...cards};
-        // updated[card.id] = card;
-        // setCards(updated);
-        setCards(cards => {
+    const createOrUpdateCard = card => { 
+        setCards(cards => { 
             const updated = {...cards};
             updated[card.id] = card;
-            return updated;
+            return updated; 
         });
     };
 
@@ -83,7 +75,13 @@ const Maker = ({authService}) => {
         <section className={styles.maker}>
             <Header onLogout={onLogout}/>
             <div className={styles.container}>
-                <Editor cards={cards} addCard={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard}/>
+                <Editor
+                    FileInput={FileInput}
+                    cards={cards} 
+                    addCard={createOrUpdateCard} 
+                    updateCard={createOrUpdateCard} 
+                    deleteCard={deleteCard}
+                />
                 <Preview cards={cards}/>
             </div>
             <Footer/>

@@ -8,7 +8,7 @@ import styles from './app.module.css';
 import Login from './components/login/login';
 import Maker from './components/maker/maker';
 
-function App({ authService }) {
+function App({ FileInput, authService }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -17,7 +17,7 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/maker">  {/* Routh의 path가 maker 일때 maker로 이동 */}
-            <Maker authService={authService} />
+            <Maker FileInput={FileInput} authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>
