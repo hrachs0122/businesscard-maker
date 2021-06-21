@@ -17,7 +17,7 @@ const Editor = ({FileInput, cards, addCard, updateCard, deleteCard }) => (
                 />
             ))
         }
-        <CardAddForm FileInput={FileInput} onAdd={addCard}/> {/*callback함수 전달*/} 
+        <CardAddForm FileInput={FileInput} onAdd={addCard}/> {/* onAdd={addCard} callback함수 전달*/} 
     </section>
 );
 
